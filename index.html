@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Mecanografía - Login</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="login/login.css">
+</head>
+<body>
+    <!-- Botón modo claro/oscuro -->
+    <button id="modoToggle" class="btn btn-outline-light position-absolute top-0 start-0 m-3">
+        🌙
+    </button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-4">Juego de Mecanografía</h3>
+
+                        <!-- Tabs Login / Registro -->
+                        <ul class="nav nav-tabs mb-3" id="authTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="registro-tab" data-bs-toggle="tab" data-bs-target="#registro" type="button" role="tab">Registro</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="authTabsContent">
+                            <!-- LOGIN -->
+                            <div class="tab-pane fade show active" id="login" role="tabpanel">
+                                <form id="formLogin">
+                                    <div class="mb-3">
+                                        <label for="nickLogin" class="form-label">Nick</label>
+                                        <input type="text" class="form-control" id="nickLogin" placeholder="Tu nick" required autocomplete="username">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="passLogin" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="passLogin" placeholder="Tu contraseña" required autocomplete="current-password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                                    <p id="mensajeLogin" class="mensaje"></p>
+                                </form>
+                            </div>
+
+                            <!-- REGISTRO -->
+                            <div class="tab-pane fade" id="registro" role="tabpanel">
+                                <form id="formRegistro">
+                                    <div class="mb-3">
+                                        <label for="nickRegistro" class="form-label">Nick</label>
+                                        <input type="text" class="form-control" id="nickRegistro" placeholder="Elige un nick" required autocomplete="username">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="passRegistro" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="passRegistro" placeholder="Contraseña" required autocomplete="new-password">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="passConfirm" class="form-label">Confirmar Contraseña</label>
+                                        <input type="password" class="form-control" id="passConfirm" placeholder="Confirmar contraseña" required autocomplete="new-password">
+                                    </div>
+                                    <button type="submit" class="btn btn-success w-100">Registrarse</button>
+                                    <p id="mensajeRegistro" class="mensaje"></p>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="login/login.js"></script>
+</body>
+</html>

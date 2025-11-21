@@ -1,0 +1,124 @@
+/* -------------------- Estilo general -------------------- */
+body {
+    min-height: 100vh;
+    background: var(--color-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
+    transition: background 0.3s, color 0.3s;
+    color: var(--color-text);
+}
+
+/* -------------------- Tarjeta principal -------------------- */
+.card {
+    background-color: var(--color-card-bg);
+    color: var(--color-text);
+    border-radius: 15px;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* -------------------- Tabs -------------------- */
+.nav-tabs .nav-link.active {
+    background-color: var(--color-primary);
+    color: #fff !important;
+    border-radius: 10px 10px 0 0;
+    transition: background-color 0.3s;
+}
+.nav-tabs .nav-link {
+    color: var(--color-text);
+}
+
+/* -------------------- Botones -------------------- */
+.btn-primary {
+    background-color: var(--color-primary);
+    border: none;
+    transition: background-color 0.3s;
+}
+.btn-primary:hover {
+    opacity: 0.85;
+}
+
+.btn-success {
+    background-color: var(--color-secondary);
+    border: none;
+    transition: background-color 0.3s;
+}
+.btn-success:hover {
+    opacity: 0.85;
+}
+
+/* -------------------- Inputs -------------------- */
+input.form-control {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-input-border);
+    color: var(--color-text);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+input.form-control::placeholder {
+    color: var(--color-placeholder);
+}
+
+/* -------------------- Títulos -------------------- */
+h3.card-title {
+    color: var(--color-text);
+}
+
+/* -------------------- Mensajes -------------------- */
+.mensaje {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.mensaje.error {
+    color: #f87171;
+    background-color: rgba(255, 200, 200, 0.4);
+}
+
+.mensaje.exito {
+    color: #10b981;
+    background-color: rgba(200, 255, 200, 0.4);
+}
+
+/* -------------------- Menú arcoiris -------------------- */
+.rainbow-menu {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 9999;
+    transition: all 0.3s;
+}
+
+.color-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    transition: transform 0.15s;
+}
+
+.color-dot:hover {
+    transform: scale(1.2);
+}
+
+/* Colores arcoiris (solo decoración, no afectan variables) */
+.color-dot.red { background: #ff1a1a; }
+.color-dot.orange { background: #ff7a00; }
+.color-dot.yellow { background: #ffd500; }
+.color-dot.green { background: #00cc44; }
+.color-dot.cyan { background: #00bcd4; }
+.color-dot.blue { background: #0066ff; }
+.color-dot.purple { background: #b300ff; }

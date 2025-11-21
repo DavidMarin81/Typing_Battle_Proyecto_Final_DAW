@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juego de Mecanografía - Burbuja</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div id="pantallaJuego" class="pantalla">
+    <div id="marcador">
+      <div id="puntuacion">Puntos: <span id="score">0</span></div>
+      <div id="fallos">Fallos: <span id="errores">0</span></div>
+      <div id="temporizador">Tiempo: <span id="timer">30</span>s</div>
+    </div>
+
+    <div id="letrasFondo"></div>
+
+    <!-- Sonidos -->
+    <audio id="popSound" src="pop.wav" preload="auto"></audio>
+    <audio id="mistakeSound" src="mistake.wav" preload="auto"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+/* =========================
+   Estilos generales
+   ========================= */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f2937, #3b82f6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
+  color: #fff;
+  transition: background 0.5s, color 0.5s;
+}
+
+.opciones-container {
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* =========================
+   Modo claro
+   ========================= */
+body.light-mode {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  color: #000;
+}
+
+body.light-mode .card {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #111;
+}
+
+/* =========================
+   Tarjetas
+   ========================= */
+.card {
+  background-color: rgba(0,0,0,0.75);
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.2);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* =========================
+   Botón modo claro/oscuro
+   ========================= */
+#modoToggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 9999;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+body.light-mode #modoToggle {
+  background: rgba(255,255,255,0.8);
+  color: #000;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* =========================
+   Formularios
+   ========================= */
+.form-label {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+select.form-select {
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+select.form-select option {
+  color: #000; /* visible en desplegable */
+}
+
+body.light-mode select.form-select {
+  background-color: #fff;
+  color: #000;
+}
+
+/* =========================
+   Botones
+   ========================= */
+.btn {
+  font-size: 1.1rem;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Títulos */
+h1, h3 {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
