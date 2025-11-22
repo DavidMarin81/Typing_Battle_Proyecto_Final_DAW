@@ -154,19 +154,27 @@ input.form-control::placeholder {
    ======================================================= */
 .rainbow-menu {
     position: absolute;
-    top: 60px;
-    left: 15px;
-    background: rgba(0,0,0,0.6);
-    padding: 10px;
+    top: 100%;
+    right: 0;
+    width: max-content !important;
+    background: rgba(134, 132, 132, 0.6);
+    padding: 10px ;
     border-radius: 12px;
     display: none;
     flex-direction: column;
     gap: 8px;
+    align-items: flex-end; 
     z-index: 9999;
+    margin-top: 8px;
 }
 
 .rainbow-menu.show {
     display: flex;
+    width: auto;
+}
+
+#rainbow-container {
+    position: relative;
 }
 
 .color-dot {
@@ -188,4 +196,52 @@ input.form-control::placeholder {
 .color-dot:hover {
     transform: scale(1.2);
     transition: 0.15s;
+}
+
+/* Contenedor general del selector de tema */
+.theme-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Los puntitos de color */
+.color-dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #333;
+
+}
+
+/* Botones normales y outline */
+.btn,
+.btn:focus,
+.btn:active,
+.btn:focus-visible {
+    box-shadow: none !important;       /* quita la sombra azul */
+}
+
+/* Outline Light específico */
+.btn-outline-light:focus,
+.btn-outline-light:active,
+.btn-outline-light:focus-visible {
+    background-color: var(--color-bg) !important;
+    color: var(--color-text) !important;
+    border-color: var(--color-primary) !important; /* si quieres que cambie con tema */
+}
+
+/* Botones primarios */
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:focus-visible {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-text) !important;
+}
+
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--color-primary) 70%, black);
+    border-color: color-mix(in srgb, var(--color-primary) 70%, black);
 }

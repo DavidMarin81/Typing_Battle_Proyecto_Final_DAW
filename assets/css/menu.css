@@ -1,0 +1,148 @@
+/* -------------------- */
+/* ESTILOS GENERALES    */
+/* -------------------- */
+
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #93c5fd);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.menu-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 900px;
+}
+
+/* -------------------- */
+/* HEADER (TOP)         */
+/* -------------------- */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* Parte IZQUIERDA (Título) */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.titulo {
+    font-size: 2rem;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+/* Parte DERECHA (Botones) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* -------------------- */
+/* BOTONES DE TEMA      */
+/* -------------------- */
+
+#resetThemeBtn,
+#toggleThemeBtn,
+#rainbowBtn {
+    font-size: 1.2rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+/* -------------------- */
+/* MENÚ ARCOIRIS        */
+/* -------------------- */
+
+.rainbow-menu {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.rainbow-menu.show {
+    display: flex;
+}
+
+.color-dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    border: 2px solid #555;
+}
+
+/* Colores */
+.red { background: red; }
+.orange { background: orange; }
+.yellow { background: yellow; }
+.green { background: green; }
+.cyan { background: cyan; }
+.blue { background: blue; }
+.purple { background: purple; }
+.custom { 
+    background: linear-gradient(45deg, #ccc, #777);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+/* -------------------- */
+/* BOTONES DE NIVELES   */
+/* -------------------- */
+
+.botones-nivel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.nivel-btn {
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    min-width: 120px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.nivel-btn:hover {
+    transform: scale(1.05);
+    background-color: color-mix(in srgb, var(--color-primary) 70%, black);
+}
+
+/* -------------------- */
+/* BOTÓN CERRAR SESIÓN  */
+/* -------------------- */
+
+.logout-btn {
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+}

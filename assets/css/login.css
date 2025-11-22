@@ -38,6 +38,7 @@ body {
 }
 .btn-primary:hover {
     opacity: 0.85;
+    background-color: color-mix(in srgb, var(--color-primary) 70%, black);
 }
 
 .btn-success {
@@ -47,6 +48,12 @@ body {
 }
 .btn-success:hover {
     opacity: 0.85;
+    background-color: color-mix(in srgb, var(--color-primary) 70%, black);
+}
+
+.btn-success:active {
+    opacity: 0.85;
+    background-color: color-mix(in srgb, var(--color-primary) 70%, black);
 }
 
 /* -------------------- Inputs -------------------- */
@@ -77,13 +84,13 @@ h3.card-title {
 }
 
 .mensaje.error {
-    color: #f87171;
-    background-color: rgba(255, 200, 200, 0.4);
+    color: var(--color-error-text, #f87171);
+    background-color: var(--color-error-bg, rgba(255, 200, 200, 0.4));
 }
 
 .mensaje.exito {
-    color: #10b981;
-    background-color: rgba(200, 255, 200, 0.4);
+    color: var(--color-success-text, #10b981);
+    background-color: var(--color-success-bg, rgba(200, 255, 200, 0.4));
 }
 
 /* -------------------- Menú arcoiris -------------------- */
@@ -122,3 +129,5 @@ h3.card-title {
 .color-dot.cyan { background: #00bcd4; }
 .color-dot.blue { background: #0066ff; }
 .color-dot.purple { background: #b300ff; }
+
+
