@@ -1,114 +1,111 @@
-/* -------------------- Tema claro (por defecto) -------------------- */
+/* =======================================================
+   ☀️ TEMA CLARO (por defecto)
+   ======================================================= */
 :root {
+    --color-primary: #007bff;
+
     --color-bg: #ffffff;
     --color-card-bg: rgba(255, 255, 255, 0.9);
     --color-text: #000000;
-    --color-primary: #007bff;
-    --color-secondary: #ff9900;
+
+    /* Derivados automáticos */
+    --color-secondary: color-mix(in srgb, var(--color-primary) 60%, black);
     --color-input-bg: rgba(0,0,0,0.05);
     --color-input-border: rgba(0,0,0,0.2);
     --color-placeholder: rgba(0,0,0,0.5);
 }
 
-/* -------------------- Tema oscuro -------------------- */
+/* =======================================================
+   🌙 TEMA OSCURO
+   ======================================================= */
 .theme-dark {
+    --color-primary: #bb86fc;
+
     --color-bg: #121212;
     --color-card-bg: rgba(18,18,18,0.85);
     --color-text: #ffffff;
-    --color-primary: #bb86fc;
-    --color-secondary: #03dac6;
+
+    /* Derivados automáticos */
+    --color-secondary: color-mix(in srgb, var(--color-primary) 40%, white);
     --color-input-bg: rgba(255,255,255,0.1);
     --color-input-border: rgba(255,255,255,0.3);
     --color-placeholder: rgba(255,255,255,0.6);
 }
 
-/* -------------------- Temas arcoiris -------------------- */
+/* =======================================================
+   🌈 TEMAS DE COLORES (solo modificas --color-primary)
+   ======================================================= */
 
 /* 🔴 Rojo */
 .theme-red {
-    --color-bg: #ffe5e5;
-    --color-card-bg: rgba(255,229,229,0.9);
-    --color-text: #3d0000;
     --color-primary: #ff1a1a;
-    --color-secondary: #b30000;
-    --color-input-bg: rgba(255,0,0,0.05);
-    --color-input-border: rgba(255,0,0,0.3);
-    --color-placeholder: rgba(61,0,0,0.5);
 }
 
 /* 🟠 Naranja */
 .theme-orange {
-    --color-bg: #fff1e0;
-    --color-card-bg: rgba(255,241,224,0.9);
-    --color-text: #4a2600;
     --color-primary: #ff7a00;
-    --color-secondary: #cc6200;
-    --color-input-bg: rgba(255,122,0,0.05);
-    --color-input-border: rgba(255,122,0,0.3);
-    --color-placeholder: rgba(74,38,0,0.5);
 }
 
 /* 🟡 Amarillo */
 .theme-yellow {
-    --color-bg: #fffbe0;
-    --color-card-bg: rgba(255,251,224,0.9);
-    --color-text: #4a4a00;
     --color-primary: #ffd500;
-    --color-secondary: #ccab00;
-    --color-input-bg: rgba(255,213,0,0.05);
-    --color-input-border: rgba(255,213,0,0.3);
-    --color-placeholder: rgba(74,74,0,0.5);
 }
 
 /* 🟢 Verde */
 .theme-green {
-    --color-bg: #e6ffe6;
-    --color-card-bg: rgba(230,255,230,0.9);
-    --color-text: #003300;
     --color-primary: #00cc44;
-    --color-secondary: #009933;
-    --color-input-bg: rgba(0,204,68,0.05);
-    --color-input-border: rgba(0,204,68,0.3);
-    --color-placeholder: rgba(0,51,0,0.5);
 }
 
 /* 🔵 Cyan */
 .theme-cyan {
-    --color-bg: #e0f7fa;
-    --color-card-bg: rgba(224,247,250,0.9);
-    --color-text: #006064;
     --color-primary: #00bcd4;
-    --color-secondary: #00838f;
-    --color-input-bg: rgba(0,188,212,0.05);
-    --color-input-border: rgba(0,188,212,0.3);
-    --color-placeholder: rgba(0,96,100,0.5);
 }
 
-/* 🔷 Azul oscuro */
+/* 🔷 Azul */
 .theme-blue {
-    --color-bg: #e0e7ff;
-    --color-card-bg: rgba(224,231,255,0.9);
-    --color-text: #00264d;
     --color-primary: #0066ff;
-    --color-secondary: #004cb8;
-    --color-input-bg: rgba(0,102,255,0.05);
-    --color-input-border: rgba(0,102,255,0.3);
-    --color-placeholder: rgba(0,38,77,0.5);
 }
 
 /* 🟣 Púrpura */
 .theme-purple {
-    --color-bg: #f4e0ff;
-    --color-card-bg: rgba(244,224,255,0.9);
-    --color-text: #3a005c;
     --color-primary: #b300ff;
-    --color-secondary: #7a00b3;
-    --color-input-bg: rgba(179,0,255,0.05);
-    --color-input-border: rgba(179,0,255,0.3);
-    --color-placeholder: rgba(58,0,92,0.5);
 }
 
-/* -------------------- Estilos generales usando variables -------------------- */
+/* 🎨 Custom */
+.theme-custom {
+    --color-primary: #b300ff;
+}
+
+/* =======================================================
+   🎨 GENERACIÓN AUTOMÁTICA PARA TODOS LOS TEMAS
+   ======================================================= */
+
+.theme-red,
+.theme-orange,
+.theme-yellow,
+.theme-green,
+.theme-cyan,
+.theme-blue,
+.theme-purple {
+    /* Fondos generados automáticamente */
+    --color-bg: color-mix(in srgb, var(--color-primary) 10%, white);
+    --color-card-bg: color-mix(in srgb, var(--color-primary) 15%, white);
+
+    /* Texto */
+    --color-text: color-mix(in srgb, var(--color-primary) 80%, black);
+
+    /* Tonos secundarios */
+    --color-secondary: color-mix(in srgb, var(--color-primary) 70%, black);
+
+    /* Inputs */
+    --color-input-bg: color-mix(in srgb, var(--color-primary) 5%, white);
+    --color-input-border: color-mix(in srgb, var(--color-primary) 40%, black);
+    --color-placeholder: color-mix(in srgb, var(--color-primary) 50%, black 50%);
+}
+
+/* =======================================================
+   🎨 ESTILOS GENERALES (iguales en todos los temas)
+   ======================================================= */
 body {
     min-height: 100vh;
     background: var(--color-bg);
@@ -146,7 +143,9 @@ input.form-control::placeholder {
     border: none;
 }
 
-/* -------------------- Menú arcoiris -------------------- */
+/* =======================================================
+   🌈 MENÚ ARCOIRIS
+   ======================================================= */
 .rainbow-menu {
     position: absolute;
     top: 60px;
@@ -154,10 +153,14 @@ input.form-control::placeholder {
     background: rgba(0,0,0,0.6);
     padding: 10px;
     border-radius: 12px;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 8px;
     z-index: 9999;
+}
+
+.rainbow-menu.show {
+    display: flex;
 }
 
 .color-dot {
@@ -168,12 +171,12 @@ input.form-control::placeholder {
     display: block;
 }
 
-.color-dot.red { background: #ff1a1a; }
+.color-dot.red    { background: #ff1a1a; }
 .color-dot.orange { background: #ff7a00; }
 .color-dot.yellow { background: #ffd500; }
-.color-dot.green { background: #00cc44; }
-.color-dot.cyan { background: #00ffff; }
-.color-dot.blue { background: #0066ff; }
+.color-dot.green  { background: #00cc44; }
+.color-dot.cyan   { background: #00bcd4; }
+.color-dot.blue   { background: #0066ff; }
 .color-dot.purple { background: #b300ff; }
 
 .color-dot:hover {
