@@ -74,8 +74,13 @@
                                     <label for="passLogin" class="form-label">Contraseña</label>
                                     <input type="password" class="form-control" id="passLogin" required>
                                 </div>
+                                
                                 <button type="submit" class="btn btn-primary w-100">Entrar</button>
                                 <p id="mensajeLogin" class="mensaje"></p>
+                                <!-- Campo 2FA oculto inicialmente -->
+                                <div id="twoFactorContainer" style="display: none; margin-top: 10px;">
+                                    <input type="text" id="twoFactorInput" class="form-control" placeholder="Código de verificación (6 dígitos)">
+                                </div>
                             </form>
                         </div>
 

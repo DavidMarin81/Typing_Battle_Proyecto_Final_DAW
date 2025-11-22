@@ -18,10 +18,10 @@ body {
     background: var(--color-menu-bg);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     width: 90%;
     max-width: 900px;
     transition: background 0.3s;
+    border: 1px solid var(--color-primary);
 }
 
 /* -------------------- */
@@ -199,5 +199,5 @@ body {
     padding: 6px 12px;
     border-radius: 8px;
     cursor: pointer;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
 }
