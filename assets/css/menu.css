@@ -14,6 +14,7 @@ body {
 
 /* Contenedor principal */
 .menu-container {
+    position: relative;
     background: var(--color-menu-bg);
     padding: 30px;
     border-radius: 15px;
@@ -188,4 +189,15 @@ body {
 .lock-icon.unlocked {
     background-color: #4caf50;
     padding: 5px;
+}
+
+.logout-btn {
+    position: absolute;
+    bottom: 15px;  /* margen desde abajo */
+    right: 15px;   /* margen desde la derecha */
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--color-secondary);
 }
