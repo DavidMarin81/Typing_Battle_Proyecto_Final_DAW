@@ -14,12 +14,13 @@ body {
 
 /* Contenedor principal */
 .menu-container {
-    background: rgba(255, 255, 255, 0.9);
+    background: var(--color-menu-bg);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     width: 90%;
     max-width: 900px;
+    transition: background 0.3s;
 }
 
 /* -------------------- */
@@ -42,8 +43,9 @@ body {
 
 .titulo {
     font-size: 2rem;
-    color: #1e3a8a;
+    color: var(--color-titulo);
     margin: 0;
+    transition: color 0.3s;
 }
 
 /* Parte DERECHA (Botones) */
@@ -124,10 +126,14 @@ body {
 }
 
 .nivel-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 12px;
-    font-size: 1.1rem;
+    font-size: 24px;
     border-radius: 10px;
-    min-width: 120px;
+    min-width: 220px;
+    text-align: left;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
@@ -145,4 +151,41 @@ body {
     padding: 6px 12px;
     font-size: 1rem;
     border-radius: 8px;
+}
+
+/* ----------------------------- */
+/* FONDO PARA LA BOLA DEL NIVEL  */
+/* ----------------------------- */
+
+.background-ball {
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+/* ----------------------------- */
+/* ESTILOS PARA LOS CANDADOS  */
+/* ----------------------------- */
+.background-padlock {
+    padding: 20px;
+}
+
+.lock-icon {
+    margin-left: 8px;
+    font-size: 24px;
+    vertical-align: middle;
+    padding: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Candado bloqueado */
+.lock-icon.locked {
+    background-color: #ff4d4d;
+    padding: 5px;
+}
+
+/* Candado desbloqueado */
+.lock-icon.unlocked {
+    background-color: #4caf50;
+    padding: 5px;
 }
