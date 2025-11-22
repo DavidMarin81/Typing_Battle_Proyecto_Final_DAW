@@ -17,6 +17,9 @@
 <!-- Botones de tema -->
 <div class="position-absolute top-0 start-0 m-3 d-flex align-items-center gap-2">
 
+    <!-- RESET -->
+    <span id="resetThemeBtn" class="btn btn-outline-light" data-theme="custom" title="Resetear tema">🔄</span>
+
     <!-- Botón claro/oscuro -->
     <button id="toggleThemeBtn" class="btn btn-outline-light" title="Elegir tema claro/oscuro">☀️</button>
 
@@ -36,6 +39,7 @@
 
         <!-- CUSTOM -->
         <span class="color-dot custom" data-theme="custom" title="Color personalizado">🎨</span>
+
     </div>
     <!-- Picker oculto -->
     <input type="color" id="customColorPicker" style="display:none;">
@@ -92,7 +96,7 @@
                                     <label for="passConfirm" class="form-label">Confirmar Contraseña</label>
                                     <input type="password" class="form-control" id="passConfirm" required>
                                 </div>
-                                <button type="submit" class="btn btn-success w-100">Registrarse</button>
+                                <button type="submit" class="btn btn-primary w-100">Entrar</button>
                                 <p id="mensajeRegistro" class="mensaje"></p>
                             </form>
                         </div>

@@ -143,6 +143,12 @@ input.form-control::placeholder {
     border: none;
 }
 
+/* Borde más claro / sombreado solo en modo oscuro */
+.theme-dark .card {
+    border: 1px solid color-mix(in srgb, var(--color-card-bg) 40%, white);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--color-card-bg) 20%, white);
+}
+
 /* =======================================================
    🌈 MENÚ ARCOIRIS
    ======================================================= */

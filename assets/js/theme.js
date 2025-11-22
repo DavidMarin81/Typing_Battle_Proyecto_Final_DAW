@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const rainbowMenu = document.getElementById("rainbowMenu");
     const colorDots = document.querySelectorAll(".color-dot");
     const colorPicker = document.getElementById("customColorPicker");
+    const resetBtn = document.getElementById("resetThemeBtn");
 
     // BaseMode: light / dark
     let baseMode = localStorage.getItem("baseMode") || "light";
@@ -62,8 +63,36 @@ document.addEventListener("DOMContentLoaded", () => {
         customColor = color;
     }
 
+    function getCurrentMode() {
+        const html = document.documentElement;
+        if (html.classList.contains("theme-dark")) return "dark";
+        if (html.classList.contains("theme-light")) return "light";
+        return baseMode; // custom
+    }
+
     function updateToggleIcon() {
         toggleThemeBtn.textContent = baseMode === "light" ? "🌙" : "☀️";
+    }
+
+    function resetTheme() {
+        // Limpiar almacenamiento
+        localStorage.removeItem("tema");
+        localStorage.removeItem("customColor");
+        localStorage.removeItem("baseMode");
+
+        // Resetear variables internas
+        baseMode = "light";
+        customColor = null;
+
+        // Aplicar tema por defecto
+        setTheme("theme-light");
+
+        // Cerrar menú arcoiris si estaba abierto
+        rainbowMenu.classList.remove("show");
+        rainbowMenu.classList.add("show");
+
+        // Recargar la página
+        location.reload();
     }
 
     // -------------------------------------------------------------
@@ -83,6 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const theme = baseMode === "light" ? "theme-light" : "theme-dark";
             setTheme(theme);
         }
+
+        // Actualizar icono
+        updateToggleIcon();
     });
 
     // Abrir/cerrar menú arcoiris
@@ -114,6 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
             applyCustomTheme(color, baseMode);
 
             rainbowMenu.classList.remove("show");
+
+            // 🔹 Actualizar icono según baseMode
+            updateToggleIcon();
         });
     });
 
@@ -121,6 +156,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const color = e.target.value;
         applyCustomTheme(color, baseMode);
         rainbowMenu.classList.remove("show");
+
+        // 🔹 Actualizar icono según baseMode
+        updateToggleIcon();
     });
 
     // Cerrar menú arcoiris al hacer click fuera
@@ -129,6 +167,12 @@ document.addEventListener("DOMContentLoaded", () => {
             rainbowMenu.classList.remove("show");
             rainbowMenu.classList.add("d-none");
         }
+    });
+
+    // Resetear los temas
+    resetBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        resetTheme();
     });
 
     // -------------------------------------------------------------
