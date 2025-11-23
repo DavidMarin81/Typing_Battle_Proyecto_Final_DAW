@@ -16,6 +16,14 @@ const puntuacion = document.getElementById("puntuacion");
 const modal = document.getElementById("modal");
 const btnSi = document.getElementById("btnSi");
 const btnNo = document.getElementById("btnNo");
+const btnVolver = document.getElementById("volver");
+
+// ===== Volver al menu =====
+if(btnVolver) {
+    btnVolver.addEventListener("click", () => {
+        window.location.href = 'menu.html';
+    })
+}
 
 // ===== Generar letras según nivel =====
 function generarLetra(nivel) {
@@ -52,7 +60,7 @@ function colorAleatorio() {
 function crearLetraEnDOM() {
     const letra = generarLetra(nivelPartida);
     const margenIzquierdo = 20;
-    const pantalla = document.getElementById("pantallaJuego");
+    const pantalla = document.getElementById("juego");
 
     const contenedor = document.createElement("div");
     contenedor.classList.add("burbuja");
@@ -83,7 +91,7 @@ function lanzarLetra() {
     if (finalPartida) return;
 
     const letraObj = crearLetraEnDOM();
-    const limite = document.getElementById("pantallaJuego").offsetHeight - fontSize;
+    const limite = document.getElementById("juego").offsetHeight - fontSize;
 
     letraObj.lanzamiento = setInterval(() => {
         if (finalPartida) {
@@ -101,10 +109,9 @@ function lanzarLetra() {
             fallo++;
             fallos.textContent = "Fallos: " + fallo;
             if (fallo >= fallos_permitidos) finalizarJuego('fallos');
+            actualizarLetraActiva();
         }
-
-        actualizarLetraActiva(); // <-- actualizamos la letra destacada
-    }, 10);
+    }, 10  );
 
     letrasActivas.push(letraObj);
     actualizarLetraActiva(); // <-- también al añadir
@@ -155,6 +162,9 @@ document.body.addEventListener("keydown", (evento) => {
 
     let primeraLetra = letrasActivas[0];
     if (primeraLetra.letra === evento.key.toLowerCase()) {
+
+        playPop();
+
         primeraLetra.contenedor.remove();
         clearInterval(primeraLetra.lanzamiento);
         letrasActivas.shift();
@@ -165,6 +175,9 @@ document.body.addEventListener("keydown", (evento) => {
 
         if (puntos >= puntuacion_maxima) finalizarJuego('puntos');
     } else {
+
+        playMistake();
+        shakeScreen();
         fallo++;
         fallos.textContent = "Fallos: " + fallo;
         if (fallo >= fallos_permitidos) finalizarJuego('fallos');
@@ -188,7 +201,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (nivel) iniciarJuego(nivel);
 });
 
-// ===== Volver al menu =====
-document.getElementById("volver").addEventListener("click", () => {
-    window.location.href = "menu.html"; // ruta relativa a tu menú
-});
+// ===== Audios para aciertos y errores
+function playPop() {
+    const audio = new Audio('../assets/audio/pop.wav');
+    audio.play().catch(e => console.error("Error al reproducir el audio"));
+}
+
+function playMistake() {
+    const audio = new Audio('../assets/audio/mistake.wav');
+    audio.play().catch(e => console.error("Error al reproducir el audio"));
+}
+
+// ===== Sacudir la pantalla ===== 
+
+// Función para hacer temblar la pantalla
+function shakeScreen() {
+  document.body.classList.add("shake-active");
+  setTimeout(() => {
+    document.body.classList.remove("shake-active");
+  }, 400);
+}
+
+

@@ -1,101 +1,101 @@
 /* -------------------- */
-/* ESTILOS GENERALES    */
+/* ESTILOS GENERALES    */
 /* -------------------- */
 
 body {
-    margin: 0;
-    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
-    background: linear-gradient(135deg, #dbeafe, #93c5fd);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+ margin: 0;
+ font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif;
+ background: linear-gradient(135deg, #dbeafe, #93c5fd);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
 }
 
 /* Contenedor principal */
 .menu-container {
-    position: relative;
-    background: var(--color-menu-bg);
-    padding: 30px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 900px;
-    transition: background 0.3s;
-    border: 1px solid var(--color-primary);
+ position: relative;
+ background: var(--color-menu-bg);
+ padding: 30px;
+ border-radius: 15px;
+ width: 90%;
+ max-width: 900px;
+ transition: background 0.3s;
+ border: 1px solid var(--color-primary);
 }
 
 /* -------------------- */
-/* HEADER (TOP)         */
+/* HEADER (TOP)   */
 /* -------------------- */
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 25px;
 }
 
 /* Parte IZQUIERDA (Título) */
 .header-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
 }
 
 .titulo {
-    font-size: 2rem;
-    color: var(--color-titulo);
-    margin: 0;
-    transition: color 0.3s;
+ font-size: 2rem;
+ color: var(--color-titulo);
+ margin: 0;
+ transition: color 0.3s;
 }
 
 /* Parte DERECHA (Botones) */
 .header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
 }
 
 /* -------------------- */
-/* BOTONES DE TEMA      */
+/* BOTONES DE TEMA   */
 /* -------------------- */
 
 #resetThemeBtn,
 #toggleThemeBtn,
 #rainbowBtn {
-    font-size: 1.2rem;
-    padding: 6px 10px;
-    border-radius: 8px;
+ font-size: 1.2rem;
+ padding: 6px 10px;
+ border-radius: 8px;
 }
 
 /* -------------------- */
-/* MENÚ ARCOIRIS        */
+/* MENÚ ARCOIRIS     */
 /* -------------------- */
 
 .rainbow-menu {
-    display: none;
-    position: absolute;
-    right: 20px;
-    top: 70px;
-    background: #ffffff;
-    padding: 8px;
-    border-radius: 10px;
-    border: 1px solid #aaa;
-    gap: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+ display: none;
+ position: absolute;
+ right: 20px;
+ top: 70px;
+ background: #ffffff;
+ padding: 8px;
+ border-radius: 10px;
+ border: 1px solid #aaa;
+ gap: 8px;
+ box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .rainbow-menu.show {
-    display: flex;
+ display: flex;
 }
 
 .color-dot {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: inline-block;
-    border: 2px solid #555;
+ width: 25px;
+ height: 25px;
+ border-radius: 50%;
+ cursor: pointer;
+ display: inline-block;
+ border: 2px solid #555;
 }
 
 /* Colores */
@@ -107,97 +107,122 @@ body {
 .blue { background: blue; }
 .purple { background: purple; }
 .custom { 
-    background: linear-gradient(45deg, #ccc, #777);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8rem;
+background: linear-gradient(45deg, #ccc, #777);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-size: 0.8rem;
 }
 
 /* -------------------- */
-/* BOTONES DE NIVELES   */
+/* BOTONES DE NIVELES   */
 /* -------------------- */
 
 .botones-nivel {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 10px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 12px;
+ margin-top: 10px;
 }
 
 .nivel-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    font-size: 24px;
-    border-radius: 10px;
-    min-width: 220px;
-    text-align: left;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 12px;
+ font-size: 24px;
+ border-radius: 10px;
+ min-width: 220px;
+ text-align: left;
+ cursor: pointer;
+ transition: transform 0.2s ease, opacity 0.3s; /* Añadida opacidad para la transición de bloqueo */
 }
 
 .nivel-btn:hover {
-    transform: scale(1.05);
-    background-color: color-mix(in srgb, var(--color-primary) 70%, black);
+ transform: scale(1.05);
+ background-color: color-mix(in srgb, var(--color-primary) 70%, black);
 }
 
+/* === ESTILOS PARA BOTONES BLOQUEADOS (Clase añadida por menu.js) === */
+.nivel-btn.locked {
+  opacity: 0.6;  /* Hace que se vea atenuado */
+  pointer-events: none;  /* Deshabilita el clic completamente */
+  cursor: not-allowed; 
+  background-color: #aaa !important;  /* Fondo gris forzado para destacar el bloqueo */
+  color: #444 !important;  /* Color de texto atenuado */
+  transform: none;  /* Anula el efecto hover */
+}
+
+.nivel-btn.locked:hover {
+ transform: none;
+ background-color: #aaa !important; 
+}
+
+
 /* -------------------- */
-/* BOTÓN CERRAR SESIÓN  */
+/* BOTÓN CERRAR SESIÓN  */
 /* -------------------- */
 
+/* Se movió el botón al header-right, por lo que estas propiedades de posición absoluta son inconsistentes */
 .logout-btn {
-    padding: 6px 12px;
-    font-size: 1rem;
-    border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 /* ----------------------------- */
-/* FONDO PARA LA BOLA DEL NIVEL  */
+/* FONDO PARA LA BOLA DEL NIVEL  */
 /* ----------------------------- */
 
 .background-ball {
     border-radius: 50%;
     background-color: currentColor;
+
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+
+    width: 25px; 
+    height: 25px;
+    font-size: 16px;
+    margin-right: 5px;
 }
 
 /* ----------------------------- */
-/* ESTILOS PARA LOS CANDADOS  */
+/* ESTILOS PARA LOS CANDADOS  */
 /* ----------------------------- */
 .background-padlock {
-    padding: 20px;
+ /* Este contenedor parece no ser necesario, estiliza directamente .lock-icon */
 }
 
 .lock-icon {
+    /* Ajustes para mejor centrado y tamaño */
     margin-left: 8px;
     font-size: 24px;
-    vertical-align: middle;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px; 
+    width: 35px; 
+    height: 35px;
+    text-align: center;
     background-color: white;
     border-radius: 50%;
+    transition: background-color 0.3s;
 }
 
-/* Candado bloqueado */
-.lock-icon.locked {
-    background-color: #ff4d4d;
-    padding: 5px;
+/* === ESTILOS CONDICIONALES BASADOS EN EL ESTADO DEL BOTÓN PADRE === */
+
+/* Candado bloqueado: Rojo, solo se aplica si el botón tiene la clase 'locked' */
+.nivel-btn.locked .lock-icon {
+  background-color: #ff4d4d;   color: white; 
 }
 
-/* Candado desbloqueado */
-.lock-icon.unlocked {
-    background-color: #4caf50;
-    padding: 5px;
-}
-
-.logout-btn {
-    position: absolute;
-    bottom: 15px;  /* margen desde abajo */
-    right: 15px;   /* margen desde la derecha */
-    font-size: 1rem;
-    padding: 6px 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: var(--color-primary);
+/* Candado desbloqueado: Verde, solo se aplica si el botón NO tiene la clase 'locked' */
+.nivel-btn:not(.locked) .lock-icon {
+  background-color: #4caf50;   color: white; 
 }

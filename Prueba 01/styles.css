@@ -93,12 +93,12 @@ body {
 }
 
 /* Animación temblor pantalla */
-@keyframes shake {
+@keyframes shakeScreen {
   0%, 100% { transform: translate(0, 0); }
   20%, 60% { transform: translate(-5px, 0); }
   40%, 80% { transform: translate(5px, 0); }
 }
 
-body.shake {
+body.shake-active {
   animation: shake 0.4s;
 }

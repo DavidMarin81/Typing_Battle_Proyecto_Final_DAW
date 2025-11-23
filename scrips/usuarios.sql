@@ -13,7 +13,6 @@ CREATE TABLE usuarios (
     two_factor_code VARCHAR(6) NULL,
     tf_expires DATETIME NULL,
 
-    -- Seguridad (anti fuerza bruta)
     intentos INT DEFAULT 0,
     blocked BOOLEAN DEFAULT FALSE
 );
