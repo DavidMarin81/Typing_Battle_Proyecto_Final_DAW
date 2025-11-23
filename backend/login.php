@@ -73,7 +73,7 @@ try {
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'davidmaringomez81@gmail.com'; // tu correo
-                $mail->Password = 'rxvp jgqh tqvh lnoz';           // tu token de aplicación
+                $mail->Password = 'token_secreto';           // tu token de aplicación
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
                 
