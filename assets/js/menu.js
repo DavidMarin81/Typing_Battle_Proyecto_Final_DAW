@@ -1,44 +1,67 @@
+// ==========================
+//   CARGAR NIVELES DESDE BD
+// ==========================
 document.addEventListener("DOMContentLoaded", () => {
-    const botones = document.querySelectorAll(".nivel-btn");
-    
-    // 1. Recuperar el nivel máximo guardado durante el login
-    const nivelMaximo = localStorage.getItem('user_nivel_maximo');
 
-    // Convertir el nivel a un número entero. Si no existe, por seguridad, usar 1.
-    const maxLevel = nivelMaximo ? parseInt(nivelMaximo, 10) : 1; 
+    const usuario_id = sessionStorage.getItem("usuario_id");
 
-    botones.forEach(btn => {
-        const nivelBoton = parseInt(btn.dataset.nivel, 10);
-        // Seleccionar el span del candado dentro de este botón específico
-        const lockIconSpan = btn.querySelector('.lock-icon'); 
-        
-        if (nivelBoton <= maxLevel) {
-            // Nivel desbloqueado:
-            btn.disabled = false;
-            btn.classList.remove('locked'); 
-            
-            // MODIFICACIÓN A: Mostrar candado ABIERTO
-            if (lockIconSpan) {
-                lockIconSpan.textContent = '🔓'; 
+    if (!usuario_id) {
+        console.warn("⚠ No hay usuario_id en sessionStorage. Volviendo al login.");
+        window.location.href = "index.html";
+        return;
+    }
+
+    fetch("https://mediumslateblue-stinkbug-339289.hostingersite.com/backend/getLevel.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ usuario_id })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+        const maxLevel = data.nivel_actual ? parseInt(data.nivel_actual, 10) : 1;
+
+        const botones = document.querySelectorAll(".nivel-btn");
+
+        botones.forEach(btn => {
+            const nivel = parseInt(btn.dataset.nivel, 10);
+            const lockIconSpan = btn.querySelector(".lock-icon");
+
+            if (nivel <= maxLevel) {
+                btn.disabled = false;
+                btn.classList.remove("locked");
+                if (lockIconSpan) lockIconSpan.textContent = "🔓";
+            } else {
+                btn.disabled = true;
+                btn.classList.add("locked");
+                if (lockIconSpan) lockIconSpan.textContent = "🔒";
+                btn.style.cursor = "not-allowed";
             }
-            
-            // 2. Manejar el clic solo para botones DESBLOQUEADOS
-            btn.addEventListener("click", () => {
-                window.location.href = `juego.html?nivel=${nivelBoton}`;
-            });
-            
-        } else {
-            // 3. Nivel bloqueado:
-            btn.disabled = true;
-            btn.classList.add('locked'); 
-            
-            // MODIFICACIÓN B: Mostrar candado CERRADO
-            if (lockIconSpan) {
-                lockIconSpan.textContent = '🔒';
-            }
-            
-            // Opcional: Impedir que se muestre como un puntero
-            btn.style.cursor = 'not-allowed'; 
-        }
-    });
+        });
+
+    })
+    .catch(err => console.error("❌ Error cargando niveles:", err));
+});
+
+
+// ====================
+//   CERRAR SESIÓN
+// ====================
+document.addEventListener("DOMContentLoaded", () => {
+
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", () => {
+
+            console.log("📌 Cerrando sesión...");
+
+            // Eliminar datos del usuario
+            sessionStorage.clear();
+            localStorage.clear(); // por si acaso
+
+            // Redirigir al login
+            window.location.href = "index.html";
+        });
+    }
 });

@@ -1,7 +1,7 @@
 // ===== Configuración del juego =====
 const fontSize = 40;
 const velocidad = 1;
-const puntuacion_maxima = 50;
+const puntuacion_maxima = 10;
 const fallos_permitidos = 3;
 
 let letrasActivas = [];
@@ -24,6 +24,34 @@ if(btnVolver) {
         window.location.href = 'menu.html';
     })
 }
+
+// ===== Guardar estadísticas en el servidor =====
+function guardarEstadisticas(puntos, fallos, nivel) {
+    const usuario_id = sessionStorage.getItem("usuario_id");
+    if (!usuario_id) {
+        console.error("❌ No existe usuario_id en sessionStorage. No se pueden guardar estadísticas.");
+        return;
+    }
+
+    const datos = {
+        usuario_id,
+        puntos,
+        fallos,
+        nivel
+    };
+
+    console.log(datos);
+
+    fetch("https://mediumslateblue-stinkbug-339289.hostingersite.com/backend/guardar_estadisticas.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(datos)
+    })
+    .then(res => res.text())
+    .then(resp => console.log("📌 Respuesta del servidor:", resp))
+    .catch(err => console.error("❌ Error al guardar estadísticas:", err));
+}
+
 
 // ===== Generar letras según nivel =====
 function generarLetra(nivel) {
@@ -135,6 +163,10 @@ function finalizarJuego(motivo) {
     letrasActivas.forEach(({ lanzamiento }) => clearInterval(lanzamiento));
     letrasActivas = [];
 
+     // === GUARDAR ESTADÍSTICAS ===
+    guardarEstadisticas(puntos, fallo, nivelPartida);
+    console.log('Puntos: ' + puntos + " - Fallos: " + fallo + " - nivelPartida: " + nivelPartida);
+
     const mensajeModal = document.getElementById('mensajeModal');
     if (motivo === 'fallos') {
         mensajeModal.textContent = "Has alcanzado los fallos máximos permitidos.";
@@ -221,5 +253,4 @@ function shakeScreen() {
     document.body.classList.remove("shake-active");
   }, 400);
 }
-
 
